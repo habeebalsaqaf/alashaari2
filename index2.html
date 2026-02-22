@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د. عبدالمجيد أمين الجابري | رعاية طبية رائدة</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Playfair Display for a premium feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Animate On Scroll (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0c4a6e', // Deep Navy
+                        secondary: '#b91c1c', // Elegant Red Accent
+                        accent: '#eab308', // Soft Gold
+                        surface: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+        }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .premium-gradient {
+            background: radial-gradient(circle at 0% 0%, rgba(12, 74, 110, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 100% 100%, rgba(234, 179, 8, 0.03) 0%, transparent 50%);
+        }
+
+        .medical-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230c4a6e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-image-frame {
+            position: relative;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            overflow: hidden;
+            animation: morph 15s linear infinite alternate;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+            100% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+        }
+
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .btn-shine:hover::after {
+            left: 100%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0c4a6e; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 glass-header transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center gap-4">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-25 group-hover:opacity-50 transition"></div>
+                        <div class="relative w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-inner">
+                            <i data-lucide="shield-plus" class="w-7 h-7"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black text-primary leading-none">د. عبدالمجيد الجابري</span>
+                        <span class="text-[10px] uppercase tracking-widest text-slate-400 mt-1">Medical Excellence</span>
+                    </div>
+                </div>
+
+                <!-- Nav Links -->
+                <div class="hidden md:flex items-center gap-10">
+                    <a href="#home" class="text-sm font-bold text-slate-700 hover:text-primary transition-all">الرئيسية</a>
+                    <a href="#about" class="text-sm font-bold text-slate-700 hover:text-primary transition-all">عن الدكتور</a>
+                    <a href="#services" class="text-sm font-bold text-slate-700 hover:text-primary transition-all">الخدمات</a>
+                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full text-sm font-bold hover:shadow-xl hover:-translate-y-0.5 transition-all btn-shine">
+                        حجز استشارة
+                    </a>
+                </div>
+
+                <button class="md:hidden text-primary" onclick="toggleMenu()">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-white border-t border-slate-100 p-6 space-y-4 shadow-xl">
+            <a href="#home" class="block font-bold text-slate-800" onclick="toggleMenu()">الرئيسية</a>
+            <a href="#about" class="block font-bold text-slate-800" onclick="toggleMenu()">عن الدكتور</a>
+            <a href="#services" class="block font-bold text-slate-800" onclick="toggleMenu()">الخدمات</a>
+            <a href="#contact" class="block bg-primary text-white text-center py-4 rounded-xl" onclick="toggleMenu()">اتصل بي</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 premium-gradient medical-pattern">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="z-10" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full text-primary text-xs font-black mb-8 border border-primary/10">
+                    <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    نخبة من الخبرة الطبية
+                </div>
+                <h1 class="text-6xl lg:text-8xl font-black text-slate-900 mb-8 leading-[1.1]">
+                    صحتكم أمانة <br/>
+                    <span class="text-primary italic font-serif">ورؤيتنا ريادة</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-12 leading-relaxed max-w-xl border-r-4 border-accent pr-6">
+                    يقدم الدكتور عبدالمجيد أمين الجابري حلولاً طبية مبتكرة تجمع بين دقة التشخيص وأحدث ما توصل إليه العلم في الطب الوقائي والعلاجي.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#contact" class="px-10 py-5 bg-primary text-white rounded-2xl font-black text-lg shadow-2xl shadow-primary/20 hover:scale-105 transition-all flex items-center gap-3 btn-shine">
+                        طلب استشارة فورية
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </a>
+                    <div class="flex -space-x-4 space-x-reverse items-center">
+                        <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden"><img src="https://i.pravatar.cc/150?u=1" alt="patient"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden"><img src="https://i.pravatar.cc/150?u=2" alt="patient"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden flex items-center justify-center bg-accent text-white font-bold text-xs">+1k</div>
+                        <p class="mr-4 text-xs font-bold text-slate-500">مريض يثقون بنا</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center lg:justify-end" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="relative w-full max-w-lg">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 blur-3xl rounded-full"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full"></div>
+                    
+                    <div class="hero-image-frame shadow-2xl bg-primary">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800" 
+                             alt="Dr. Abdulmajeed" 
+                             class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700">
+                    </div>
+
+                    <!-- Floating Card -->
+                    <div class="absolute bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-5 translate-y-12 animate-bounce-slow" style="animation-duration: 4s;">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
+                            <i data-lucide="star" class="w-8 h-8 fill-accent"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-primary leading-none">15+</p>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase mt-1">سنة من الخبرة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-primary font-black uppercase tracking-widest text-sm mb-4">التخصصات والخدمات</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-slate-900">نقدم رعاية طبية <br/> متكاملة بمعايير عالمية</h3>
+                </div>
+                <p class="text-slate-500 max-w-sm mb-2">نسعى دائماً لتوفير أفضل سبل الراحة للمريض من خلال خدماتنا المتميزة والمتابعة الدقيقة.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group p-10 bg-slate-50 rounded-[3rem] border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-white shadow-lg rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i data-lucide="microscope" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-4">التشخيص المتقدم</h4>
+                    <p class="text-slate-500 leading-relaxed mb-6">استخدام أحدث بروتوكولات الفحص العالمية لتحديد مسببات الأمراض بدقة متناهية.</p>
+                    <a href="#" class="text-primary font-bold inline-flex items-center gap-2 group/btn">
+                        اقرأ المزيد 
+                        <i data-lucide="arrow-left" class="w-4 h-4 group-hover/btn:-translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-10 bg-primary rounded-[3rem] text-white shadow-2xl shadow-primary/30" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center text-accent mb-8">
+                        <i data-lucide="activity" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4">الطب الوقائي</h4>
+                    <p class="text-primary-100/70 leading-relaxed mb-6">برامج مخصصة لتعزيز الصحة العامة والوقاية من الأمراض المزمنة قبل حدوثها.</p>
+                    <a href="#" class="text-accent font-bold inline-flex items-center gap-2 group/btn">
+                        احجز فحصك الدوري
+                        <i data-lucide="arrow-left" class="w-4 h-4 group-hover/btn:-translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-10 bg-slate-50 rounded-[3rem] border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-white shadow-lg rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i data-lucide="Stethoscope" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-4">الاستشارات العامة</h4>
+                    <p class="text-slate-500 leading-relaxed mb-6">متابعة شاملة للحالات المرضية وتوجيه المريض لأفضل المسارات العلاجية المناسبة.</p>
+                    <a href="#" class="text-primary font-bold inline-flex items-center gap-2 group/btn">
+                        المزيد عن الخبرات
+                        <i data-lucide="arrow-left" class="w-4 h-4 group-hover/btn:-translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="about" class="py-32 bg-surface">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="order-2 lg:order-1 space-y-12" data-aos="fade-left">
+                    <div class="relative p-8 bg-white rounded-[2.5rem] shadow-xl">
+                        <div class="absolute -top-6 -right-6 w-20 h-20 bg-accent rounded-full flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="graduation-cap" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="text-xl font-black text-primary mb-2">التعليم والتدريب</h4>
+                        <p class="text-slate-600">حاصل على أعلى الدرجات العلمية في الطب والجراحة من أعرق الجامعات، مع زمالات تدريبية مكثفة.</p>
+                    </div>
+                    
+                    <div class="flex gap-8">
+                        <div class="flex-1 p-8 bg-white rounded-[2.5rem] shadow-lg border-b-4 border-primary">
+                            <h5 class="text-3xl font-black text-primary mb-1">+15</h5>
+                            <p class="text-sm font-bold text-slate-400 uppercase">عام خبرة</p>
+                        </div>
+                        <div class="flex-1 p-8 bg-white rounded-[2.5rem] shadow-lg border-b-4 border-accent">
+                            <h5 class="text-3xl font-black text-primary mb-1">99%</h5>
+                            <p class="text-sm font-bold text-slate-400 uppercase">رضا المرضى</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2" data-aos="fade-right">
+                    <h2 class="text-5xl font-black text-slate-900 mb-8 leading-tight">
+                        مسيرة مهنية مبنية على <br/>
+                        <span class="text-primary italic">الثقة والإتقان</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        الدكتور عبدالمجيد ليس مجرد طبيب، بل هو مرجع طبي يسعى لتمكين المرضى من فهم حالتهم الصحية واتخاذ أفضل القرارات لنمط حياة صحي ومستدام.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4 font-bold text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            عضو الجمعية الملكية للأطباء
+                        </li>
+                        <li class="flex items-center gap-4 font-bold text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            مستشار طبي في كبرى المستشفيات
+                        </li>
+                        <li class="flex items-center gap-4 font-bold text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            باحث في تطوير جودة الرعاية الصحية
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="bg-primary rounded-[4rem] overflow-hidden flex flex-col lg:flex-row shadow-[0_50px_100px_-20px_rgba(12,74,110,0.4)]">
+                <!-- Sidebar Info -->
+                <div class="lg:w-2/5 p-12 md:p-20 bg-slate-900 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full medical-pattern opacity-10"></div>
+                    <div class="z-10">
+                        <h3 class="text-4xl font-black mb-6">ابدأ رحلة التعافي <br/> اليوم</h3>
+                        <p class="text-slate-400 mb-12 text-lg">تواصل معنا لحجز موعدك أو للحصول على إجابات لاستفساراتك الطبية العاجلة.</p>
+                        
+                        <div class="space-y-10">
+                            <div class="group flex gap-6">
+                                <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                                    <i data-lucide="phone" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">اتصل بنا</p>
+                                    <p class="text-xl font-bold">+966 50 000 0000</p>
+                                </div>
+                            </div>
+                            <div class="group flex gap-6">
+                                <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                                    <i data-lucide="map-pin" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">المقر الرئيسي</p>
+                                    <p class="text-xl font-bold">الرياض، حي الفاخرية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:w-3/5 p-12 md:p-20 bg-white">
+                    <form id="contactForm" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-3">
+                                <label class="text-sm font-black text-slate-700">الاسم الثلاثي</label>
+                                <input type="text" placeholder="أدخل اسمك الكامل" class="w-full bg-slate-50 border-2 border-slate-50 px-6 py-4 rounded-2xl focus:border-primary/20 focus:bg-white outline-none transition-all">
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-sm font-black text-slate-700">رقم الجوال</label>
+                                <input type="tel" placeholder="+966" dir="ltr" class="w-full bg-slate-50 border-2 border-slate-50 px-6 py-4 rounded-2xl focus:border-primary/20 focus:bg-white outline-none transition-all text-left">
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-sm font-black text-slate-700">نوع الاستشارة</label>
+                            <select class="w-full bg-slate-50 border-2 border-slate-50 px-6 py-4 rounded-2xl focus:border-primary/20 focus:bg-white outline-none transition-all appearance-none cursor-pointer">
+                                <option>استشارة عامة</option>
+                                <option>مراجعة تقارير طبية</option>
+                                <option>فحص دوري</option>
+                            </select>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-sm font-black text-slate-700">وصف الحالة (اختياري)</label>
+                            <textarea rows="4" placeholder="اكتب نبذة مختصرة عن الحالة..." class="w-full bg-slate-50 border-2 border-slate-50 px-6 py-4 rounded-2xl focus:border-primary/20 focus:bg-white outline-none transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-6 rounded-2xl font-black text-lg shadow-xl shadow-primary/20 hover:bg-slate-900 transition-all flex items-center justify-center gap-3">
+                            تأكيد الطلب
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 pt-24 pb-12 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-10">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-2xl font-black text-primary">د. عبدالمجيد الجابري</span>
+                </div>
+                <div class="flex gap-10 font-bold text-slate-500">
+                    <a href="#" class="hover:text-primary transition-colors">لينكد إن</a>
+                    <a href="#" class="hover:text-primary transition-colors">تويتر</a>
+                    <a href="#" class="hover:text-primary transition-colors">إنستقرام</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between text-slate-400 text-sm font-bold gap-6">
+                <p>© 2024 جميع الحقوق محفوظة - د. عبدالمجيد أمين الجابري</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:underline">سياسة الخصوصية</a>
+                    <a href="#" class="hover:underline">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 1000,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            
+            if(!menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-0', 'shadow-2xl');
+            } else {
+                nav.classList.remove('py-0', 'shadow-2xl');
+            }
+        });
+
+        // Form Submission Mockup
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'جاري الإرسال...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'تم الإرسال بنجاح ✓';
+                btn.classList.replace('bg-primary', 'bg-green-600');
+                e.target.reset();
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-primary');
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
